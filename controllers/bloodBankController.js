@@ -1,10 +1,10 @@
 const bloodBankEntries = [
     {
         id: 1,
-        donorName: "John Doe",
+        donorName: "Donor1",
         age: 25,
         bloodType: "O+",
-        contactInfo: "john.doe@example.com",
+        contactInfo: "Donor1@example.com",
         quantity: 2,
         collectionDate: "2024-11-01",
         expirationDate: "2024-11-30",
@@ -12,10 +12,10 @@ const bloodBankEntries = [
     },
     {
         id: 2,
-        donorName: "Jane Smith",
+        donorName: "Donor2",
         age: 30,
         bloodType: "A+",
-        contactInfo: "jane.smith@example.com",
+        contactInfo: "Donor2@example.com",
         quantity: 3,
         collectionDate: "2024-11-10",
         expirationDate: "2024-12-05",
@@ -23,10 +23,10 @@ const bloodBankEntries = [
     },
     {
         id: 3,
-        donorName: "Robert Brown",
+        donorName: "Donor3",
         age: 45,
         bloodType: "B-",
-        contactInfo: "robert.brown@example.com",
+        contactInfo: "Donor3@example.com",
         quantity: 1,
         collectionDate: "2024-11-05",
         expirationDate: "2024-11-25",
@@ -34,10 +34,10 @@ const bloodBankEntries = [
     },
     {
         id: 4,
-        donorName: "Emily Davis",
+        donorName: "Donor4",
         age: 35,
         bloodType: "O-",
-        contactInfo: "emily.davis@example.com",
+        contactInfo: "Donor4@example.com",
         quantity: 2,
         collectionDate: "2024-11-15",
         expirationDate: "2024-12-10",
@@ -45,10 +45,10 @@ const bloodBankEntries = [
     },
     {
         id: 5,
-        donorName: "Michael Wilson",
+        donorName: "Donor5",
         age: 40,
         bloodType: "B+",
-        contactInfo: "michael.wilson@example.com",
+        contactInfo: "Donor5@example.com",
         quantity: 4,
         collectionDate: "2024-11-12",
         expirationDate: "2024-11-30",
@@ -56,10 +56,10 @@ const bloodBankEntries = [
     },
     {
         id: 6,
-        donorName: "Sophia Miller",
+        donorName: "Donor6",
         age: 29,
         bloodType: "A-",
-        contactInfo: "sophia.miller@example.com",
+        contactInfo: "Donor6@example.com",
         quantity: 3,
         collectionDate: "2024-11-07",
         expirationDate: "2024-11-25",
@@ -67,10 +67,10 @@ const bloodBankEntries = [
     },
     {
         id: 7,
-        donorName: "William Johnson",
+        donorName: "Donor7",
         age: 33,
         bloodType: "AB+",
-        contactInfo: "william.johnson@example.com",
+        contactInfo: "Donor7@example.com",
         quantity: 5,
         collectionDate: "2024-11-09",
         expirationDate: "2024-11-29",
@@ -78,10 +78,10 @@ const bloodBankEntries = [
     },
     {
         id: 8,
-        donorName: "Olivia Taylor",
+        donorName: "Donor8",
         age: 27,
         bloodType: "AB-",
-        contactInfo: "olivia.taylor@example.com",
+        contactInfo: "Donor8.com",
         quantity: 1,
         collectionDate: "2024-11-08",
         expirationDate: "2024-11-28",
@@ -147,7 +147,7 @@ exports.getAllEntries = (req, res) => {
     try {
         res.json(bloodBankEntries);
     } catch (error) {
-        handleError(res, "An error occurred while fetching the entries.", 500);
+        handleError(res, "error", 500);
     }
 };
 
@@ -159,7 +159,7 @@ exports.getEntryById = (req, res) => {
         if (!entry) return handleError(res, "Entry not found.", 404);
         res.json(entry);
     } catch (error) {
-        handleError(res, "An error occurred while fetching the entry.", 500);
+        handleError(res, "error ", 500);
     }
 };
 
@@ -192,7 +192,7 @@ exports.updateEntry = (req, res) => {
         Object.assign(entry, updates);
         res.json(entry);
     } catch (error) {
-        handleError(res, "An error occurred while updating the entry.", 500);
+        handleError(res, "error ", 500);
     }
 };
 
@@ -206,7 +206,7 @@ exports.deleteEntry = (req, res) => {
         bloodBankEntries.splice(index, 1);
         res.status(204).send();
     } catch (error) {
-        handleError(res, "An error occurred while deleting the entry.", 500);
+        handleError(res, "error", 500);
     }
 };
 
@@ -280,6 +280,6 @@ exports.searchEntries = (req, res) => {
 
         res.json(filteredEntries);
     } catch (error) {
-        handleError(res, "An error occurred while searching for entries.", 500);
+        handleError(res, "error ", 500);
     }
 };
